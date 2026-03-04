@@ -14,10 +14,18 @@ Ein Theme ist **nicht nur CSS**.
 
 - `php bin/atoll theme:install /path/to/theme`
 - `php bin/atoll theme:install:registry business`
+- `php bin/atoll theme:install:registry studio-pro --license=YOUR_KEY`
 - `php bin/atoll theme:list`
 - `php bin/atoll theme:activate business`
 - `php bin/atoll preset:list`
 - `php bin/atoll preset:apply business`
+
+## Marketplace (Verkauf)
+
+Der Theme-Marktplatz basiert auf `content/data/theme-registry.json`.
+Pro Eintrag koennen `price_eur`, `seller`, `requires_license` und `checkout_url` gesetzt werden.
+
+Lizenzschluessel werden in `content/data/licenses.yaml` gespeichert.
 
 ## Official Theme Set (separate repos)
 
