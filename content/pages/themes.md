@@ -1,6 +1,6 @@
 ---
 title: Themes
-excerpt: Theme-Aufbau, Built-in Themes und Override-Reihenfolge.
+excerpt: Theme-Aufbau, offizielle Theme-Repos und Override-Reihenfolge.
 ---
 
 ## Was ist ein Theme in atoll?
@@ -13,18 +13,19 @@ Ein Theme ist **nicht nur CSS**.
 ## Installation
 
 - `php bin/atoll theme:install /path/to/theme`
-- `php bin/atoll theme:install:registry core-business`
+- `php bin/atoll theme:install:registry business`
 - `php bin/atoll theme:list`
 - `php bin/atoll theme:activate business`
 - `php bin/atoll preset:list`
 - `php bin/atoll preset:apply business`
 
-## Built-in Theme Set (Core)
+## Official Theme Set (separate repos)
 
-- `default` — universeller Startpunkt
-- `business` — Firmen-/Service-Seiten
-- `editorial` — Doku/Blog-lastige Seiten
-- `portfolio` — visuelle Showcase-Seiten
+- `default` bleibt im Core als Fallback
+- `business` — offizielles Repo: https://github.com/atoll-cms/atoll-theme-business
+- `editorial` — offizielles Repo: https://github.com/atoll-cms/atoll-theme-editorial
+- `portfolio` — offizielles Repo: https://github.com/atoll-cms/atoll-theme-portfolio
+- `skeleton` — Beispielstruktur: https://github.com/atoll-cms/atoll-theme-skeleton
 
 ## Starter-Presets (Content)
 
