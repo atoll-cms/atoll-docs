@@ -16,6 +16,8 @@ Ein Theme ist **nicht nur CSS**.
 - `php bin/atoll theme:install:registry core-business`
 - `php bin/atoll theme:list`
 - `php bin/atoll theme:activate business`
+- `php bin/atoll preset:list`
+- `php bin/atoll preset:apply business`
 
 ## Built-in Theme Set (Core)
 
@@ -23,6 +25,16 @@ Ein Theme ist **nicht nur CSS**.
 - `business` — Firmen-/Service-Seiten
 - `editorial` — Doku/Blog-lastige Seiten
 - `portfolio` — visuelle Showcase-Seiten
+
+## Starter-Presets (Content)
+
+Passend zum Theme gibt es Presets fuer Startinhalte:
+
+- `business`
+- `editorial`
+- `portfolio`
+
+Mit `preset:apply` werden beispielhafte Seiten, Navigation und Blog-Inhalte gesetzt.
 
 ## Override-Reihenfolge
 

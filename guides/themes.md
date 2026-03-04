@@ -11,10 +11,17 @@ Install:
 php bin/atoll theme:install /path/to/theme
 php bin/atoll theme:list
 php bin/atoll theme:activate business
+php bin/atoll preset:list
+php bin/atoll preset:apply business
 ```
 
 Built-in themes:
 - `default`
+- `business`
+- `editorial`
+- `portfolio`
+
+Starter presets:
 - `business`
 - `editorial`
 - `portfolio`
