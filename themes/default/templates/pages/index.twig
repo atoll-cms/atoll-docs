@@ -1,0 +1,31 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+  <section class="hero hero-docs">
+    <p class="eyebrow">Dokumentation</p>
+    <h1>{{ page.title }}</h1>
+    <p class="hero-copy">{{ page.excerpt }}</p>
+  </section>
+
+  <article class="prose doc-prose">{{ page.content|raw }}</article>
+
+  <section class="grid-3 doc-cards">
+    <a class="card" href="{{ url('/updates') }}">
+      <h2>Updates</h2>
+      <p>Signierte Releases, Migrations und Rollback-Strategien.</p>
+    </a>
+    <a class="card" href="{{ url('/plugins') }}">
+      <h2>Plugins</h2>
+      <p>Installieren, aktivieren und eigene Pakete bereitstellen.</p>
+    </a>
+    <a class="card" href="{{ url('/themes') }}">
+      <h2>Themes</h2>
+      <p>Overrides, Assets und visuelle Anpassungen pro Projekt.</p>
+    </a>
+  </section>
+
+  <section class="island-block">
+    <h2>Instant Search Island</h2>
+    {{ island('SearchWidget', { client: 'load', props: { placeholder: 'Doku durchsuchen...' } })|raw }}
+  </section>
+{% endblock %}
