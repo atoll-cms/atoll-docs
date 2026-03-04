@@ -1,15 +1,32 @@
 ---
 title: Themes
-excerpt: Theme-Installation und Override-Reihenfolge.
+excerpt: Theme-Aufbau, Built-in Themes und Override-Reihenfolge.
 ---
+
+## Was ist ein Theme in atoll?
+
+Ein Theme ist **nicht nur CSS**.
+
+- `assets/main.css` definiert Look & Feel.
+- `templates/` ist optional und ueberschreibt Twig-Layouts/Pages/Components.
 
 ## Installation
 
 - `php bin/atoll theme:install /path/to/theme`
+- `php bin/atoll theme:install:registry core-business`
 - `php bin/atoll theme:list`
+- `php bin/atoll theme:activate business`
+
+## Built-in Theme Set (Core)
+
+- `default` — universeller Startpunkt
+- `business` — Firmen-/Service-Seiten
+- `editorial` — Doku/Blog-lastige Seiten
+- `portfolio` — visuelle Showcase-Seiten
 
 ## Override-Reihenfolge
 
 1. `templates/`
 2. `themes/<active>/templates/`
-3. `core/themes/default/templates/`
+3. `core/themes/<active>/templates/`
+4. `core/themes/default/templates/`
