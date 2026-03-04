@@ -1,8 +1,20 @@
 # atoll-docs
 
-Documentation repository for atoll-cms.
+Documentation site for atoll-cms, built with atoll itself.
 
-## Current docs
+## Local development
 
-- `ATOLL_CONCEPT_ORIGINAL.md` (source of truth concept)
-- `guides/` for practical operations
+```bash
+composer install
+php bin/atoll serve 8080
+```
+
+## Static export
+
+```bash
+php scripts/export-static.php dist
+```
+
+## Deployment
+
+GitHub Actions builds a local static `dist/` from the atoll runtime and deploys that artifact to GitHub Pages.

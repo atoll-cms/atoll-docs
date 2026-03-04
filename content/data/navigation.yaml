@@ -1,0 +1,10 @@
+- label: Start
+  url: /
+- label: Updates
+  url: /updates
+- label: Plugins
+  url: /plugins
+- label: Themes
+  url: /themes
+- label: Konzept
+  url: https://github.com/atoll-cms/atoll-docs/blob/main/ATOLL_CONCEPT_ORIGINAL.md
