@@ -1,0 +1,5 @@
+id: docs
+name: Atoll Docs
+version: 0.1.0
+description: Official documentation theme for atoll-cms. Clean sidebar navigation, scroll-spy table of contents, refined typography, and elegant code blocks.
+preview: assets/preview.png

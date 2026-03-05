@@ -45,6 +45,6 @@ features:
   backup_core: true
   redirects_core: true
 appearance:
-  theme: editorial
+  theme: docs
 plugins:
   defaults_enabled: true
