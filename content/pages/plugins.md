@@ -8,6 +8,7 @@ excerpt: Installation und Struktur eigener atoll-cms Plugins.
 - `php bin/atoll plugin:install /path/to/plugin --enable`
 - `php bin/atoll plugin:install:registry i18n --enable`
 - `php bin/atoll plugin:install:registry tables --enable`
+- `php bin/atoll plugin:install:registry visual-editor --enable`
 - `php bin/atoll plugin:install:registry booking-pro --enable --license=YOUR_KEY`
 - `php bin/atoll plugin:list`
 
@@ -18,6 +19,7 @@ excerpt: Installation und Struktur eigener atoll-cms Plugins.
 - `forms-pro`
 - `shop`
 - `tables` (sortieren, filtern, pagination als Island; CSV-Parse helper unter `POST /tables/parse-csv`)
+- `visual-editor` (Markdown <-> Block Konvertierung mit eigener Admin-Seite unter `/admin/visual-editor`)
 
 ## Marketplace (Verkauf)
 

@@ -22,5 +22,17 @@
     "name": "shop",
     "type": "official",
     "description": "Lightweight ecommerce module"
+  },
+  {
+    "id": "tables",
+    "name": "Tables",
+    "type": "official",
+    "description": "Sortable and filterable data tables with CSV helper endpoint."
+  },
+  {
+    "id": "visual-editor",
+    "name": "Visual Editor",
+    "type": "official",
+    "description": "Block-style markdown editor bridge with admin UI and parse/render endpoints."
   }
 ]
