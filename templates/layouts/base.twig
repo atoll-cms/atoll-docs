@@ -6,17 +6,204 @@
     {{ page ? seo_meta(page) : '' }}
     {{ hook('head:meta', page, site)|raw }}
     {{ hook('head:scripts', page, site)|raw }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ theme_asset('main.css') }}">
   </head>
-  <body class="docs-body">
-    <div class="bg-orb orb-a" aria-hidden="true"></div>
-    <div class="bg-orb orb-b" aria-hidden="true"></div>
+  <body>
+    <a class="skip-to-content" href="#main-content">Zum Inhalt springen</a>
     {{ hook('body:start', page, site)|raw }}
     {% include 'components/header.twig' %}
-    <main class="container docs-main">
-      {% block content %}{% endblock %}
-    </main>
+
+    <div class="docs-layout">
+      {# ── Sidebar navigation ── #}
+      <aside class="docs-sidebar" aria-label="Seitennavigation">
+        <nav>
+          {% for item in navigation %}
+            {% if item.section is defined %}
+              <div class="sidebar-section">
+                <div class="sidebar-heading">{{ item.section }}</div>
+                <ul class="sidebar-links">
+                  {% for child in item.children|default([]) %}
+                    <li>
+                      <a href="{{ url(child.url|default('/')) }}"
+                         {% if page.url == child.url %}aria-current="page"{% endif %}>
+                        {{ child.label }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% elseif item.url is defined %}
+              <div class="sidebar-section">
+                <ul class="sidebar-links">
+                  <li>
+                    <a href="{{ url(item.url) }}"
+                       {% if page.url == item.url %}aria-current="page"{% endif %}>
+                      {{ item.label }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </nav>
+      </aside>
+
+      {# ── Main content ── #}
+      <main id="main-content">
+        {% block content %}{% endblock %}
+      </main>
+
+      {# ── Table of Contents (populated by JS) ── #}
+      <aside class="docs-toc" aria-label="Inhaltsverzeichnis">
+        <div class="toc-title">Auf dieser Seite</div>
+        <ul class="toc-list" id="toc-list"></ul>
+      </aside>
+    </div>
+
     {% include 'components/footer.twig' %}
     {{ hook('body:end', page, site)|raw }}
+
+    <script>
+      /* ── Sticky header shadow ── */
+      const header = document.querySelector('.site-header');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('scrolled', window.scrollY > 10);
+        }, { passive: true });
+      }
+
+      /* ── Mobile navigation toggle ── */
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.header-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('is-open', !expanded);
+          document.body.style.overflow = !expanded ? 'hidden' : '';
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+            toggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-open');
+            document.body.style.overflow = '';
+            toggle.focus();
+          }
+        });
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 768 && nav.classList.contains('is-open')) {
+            toggle.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-open');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      /* ── Table of Contents generation & scroll spy ── */
+      (function() {
+        const tocList = document.getElementById('toc-list');
+        const content = document.getElementById('main-content');
+        if (!tocList || !content) return;
+
+        const headings = content.querySelectorAll('.prose h2, .prose h3');
+        if (headings.length === 0) {
+          const tocAside = tocList.closest('.docs-toc');
+          if (tocAside) tocAside.style.display = 'none';
+          return;
+        }
+
+        const items = [];
+        headings.forEach((h, i) => {
+          if (!h.id) {
+            h.id = h.textContent.trim()
+              .toLowerCase()
+              .replace(/[^a-z0-9äöüß]+/g, '-')
+              .replace(/^-|-$/g, '') || 'section-' + i;
+          }
+
+          const anchor = document.createElement('a');
+          anchor.className = 'heading-anchor';
+          anchor.href = '#' + h.id;
+          anchor.textContent = '#';
+          anchor.setAttribute('aria-label', 'Link zu ' + h.textContent.trim());
+          h.appendChild(anchor);
+
+          const li = document.createElement('li');
+          li.className = h.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
+          const a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.childNodes[0].textContent.trim();
+          li.appendChild(a);
+          tocList.appendChild(li);
+          items.push({ el: h, link: a });
+        });
+
+        let currentActive = null;
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const item = items.find(i => i.el === entry.target);
+              if (item) {
+                if (currentActive) currentActive.classList.remove('is-active');
+                item.link.classList.add('is-active');
+                currentActive = item.link;
+              }
+            }
+          });
+        }, {
+          rootMargin: '-80px 0px -70% 0px',
+          threshold: 0
+        });
+
+        items.forEach(item => observer.observe(item.el));
+      })();
+
+      /* ── Code block copy buttons ── */
+      (function() {
+        document.querySelectorAll('.prose pre').forEach(pre => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'code-block-wrapper';
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+
+          const btn = document.createElement('button');
+          btn.className = 'code-copy-btn';
+          btn.textContent = 'Copy';
+          btn.setAttribute('aria-label', 'Code kopieren');
+          wrapper.appendChild(btn);
+
+          const code = pre.querySelector('code');
+          if (code) {
+            const langClass = Array.from(code.classList).find(c => c.startsWith('language-'));
+            if (langClass) {
+              const lang = document.createElement('span');
+              lang.className = 'code-lang';
+              lang.textContent = langClass.replace('language-', '');
+              wrapper.appendChild(lang);
+            }
+          }
+
+          btn.addEventListener('click', async () => {
+            const text = pre.querySelector('code')
+              ? pre.querySelector('code').textContent
+              : pre.textContent;
+            try {
+              await navigator.clipboard.writeText(text);
+              btn.textContent = 'Copied!';
+              btn.classList.add('copied');
+              setTimeout(() => {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+              }, 2000);
+            } catch (e) {
+              btn.textContent = 'Error';
+              setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+            }
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

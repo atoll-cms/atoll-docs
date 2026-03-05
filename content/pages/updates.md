@@ -1,17 +1,18 @@
 ---
-title: Updates und Rollbacks
-excerpt: Signierte Remote-Updates und sichere Rollback-Strategien.
+title: Updates & Rollbacks
+excerpt: Signed remote updates and safe rollback strategies.
+eyebrow: Operations
 ---
 
-## Kernbefehle
+## Core Commands
 
 - `php bin/atoll core:status`
 - `php bin/atoll core:check`
 - `php bin/atoll core:update:remote`
 - `php bin/atoll core:rollback`
 
-## Hinweise
+## Notes
 
-- Remote-Updates pruefen SHA-256 und RSA-Signatur.
-- Migrationen laufen semantisch und werden protokolliert.
-- Rollbacks nutzen entweder Historie, Backup oder explizite Quelle.
+- Remote updates verify SHA-256 and RSA signature.
+- Migrations run semantically and are logged.
+- Rollbacks use either history, backup or an explicit source.

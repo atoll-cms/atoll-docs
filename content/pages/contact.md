@@ -1,6 +1,6 @@
 ---
-title: Beitragen
-excerpt: Mitwirken an Core, Starter, Docs und Website.
+title: Contribute
+excerpt: Contributing to core, starter, docs and website.
 ---
 
-Issues und Pull Requests sind willkommen in der atoll-cms Organisation auf GitHub.
+Issues and pull requests are welcome in the atoll-cms organisation on GitHub.

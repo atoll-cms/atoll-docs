@@ -1,11 +1,11 @@
 ---
 title: atoll-cms Docs
-excerpt: Dokumentation fuer Betrieb, Updates, Plugins und Themes.
+excerpt: Documentation for operation, updates, plugins and themes.
 ---
 
-Willkommen in der atoll-cms Dokumentation.
+Welcome to the atoll-cms documentation.
 
-- [Update-Guide](updates)
-- [Plugin-Guide](plugins)
-- [Theme-Guide](themes)
-- [Originalkonzept im Repo](https://github.com/atoll-cms/atoll-docs/blob/main/ATOLL_CONCEPT_ORIGINAL.md)
+- [Update Guide](updates)
+- [Plugin Guide](plugins)
+- [Theme Guide](themes)
+- [Original concept in repo](https://github.com/atoll-cms/atoll-docs/blob/main/ATOLL_CONCEPT_ORIGINAL.md)

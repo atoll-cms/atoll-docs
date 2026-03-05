@@ -1,6 +1,7 @@
 ---
 title: Plugins
-excerpt: Installation und Struktur eigener atoll-cms Plugins.
+excerpt: Installing and structuring atoll-cms plugins.
+eyebrow: Extensions
 ---
 
 ## Installation
@@ -12,22 +13,22 @@ excerpt: Installation und Struktur eigener atoll-cms Plugins.
 - `php bin/atoll plugin:install:registry booking-pro --enable --license=YOUR_KEY`
 - `php bin/atoll plugin:list`
 
-## Offizielle Tier-2 Plugins (aktueller Stand)
+## Official Tier-2 Plugins (current state)
 
 - `i18n`
 - `analytics`
 - `forms-pro`
 - `shop`
-- `tables` (sortieren, filtern, pagination als Island; CSV-Parse helper unter `POST /tables/parse-csv`)
-- `visual-editor` (Markdown <-> Block Konvertierung mit eigener Admin-Seite unter `/admin/visual-editor`)
+- `tables` (sort, filter, pagination as island; CSV parse helper at `POST /tables/parse-csv`)
+- `visual-editor` (Markdown <-> Block conversion with dedicated admin page at `/admin/visual-editor`)
 
-## Marketplace (Verkauf)
+## Marketplace (commercial)
 
-Der Plugin-Marktplatz basiert auf `content/data/plugin-registry.json`.
-Pro Eintrag koennen `price_eur`, `seller`, `requires_license` und `checkout_url` gesetzt werden.
+The plugin marketplace is based on `content/data/plugin-registry.json`.
+Each entry can set `price_eur`, `seller`, `requires_license` and `checkout_url`.
 
-Lizenzschluessel werden in `content/data/licenses.yaml` gespeichert.
+License keys are stored in `content/data/licenses.yaml`.
 
-## Struktur
+## Structure
 
-Ein Plugin benoetigt eine `plugin.php` mit Metadaten, Hooks, optionalen Routen und Islands.
+A plugin requires a `plugin.php` with metadata, hooks, optional routes and islands.

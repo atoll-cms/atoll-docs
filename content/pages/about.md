@@ -1,6 +1,7 @@
 ---
-title: Architektur
-excerpt: Core/Site-Split und Override-Prinzipien in atoll-cms.
+title: Architecture
+excerpt: Core/site split and override principles in atoll-cms.
+eyebrow: Reference
 ---
 
-atoll-cms trennt Core (`core/`) und Projektinhalte (`content/`, `themes/`, `plugins/`) sauber, damit Core-Updates sicher und reproduzierbar laufen.
+atoll-cms cleanly separates core (`core/`) and project content (`content/`, `themes/`, `plugins/`) so that core updates run safely and reproducibly.

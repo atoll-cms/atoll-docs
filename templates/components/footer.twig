@@ -1,6 +1,8 @@
-<footer class="site-footer docs-footer">
-  <div class="container docs-footer-row">
-    <p>&copy; {{ "now"|date("Y") }} atoll-cms</p>
-    <p><a href="{{ url('/sitemap.xml') }}">Sitemap</a> · <a href="{{ url('/robots.txt') }}">Robots</a></p>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; {{ "now"|date("Y") }} {{ site.name|default('atoll-cms') }}</p>
+      <p><a href="{{ url('/sitemap.xml') }}">Sitemap</a> &middot; <a href="{{ url('/robots.txt') }}">Robots</a> &middot; Powered by <a href="https://github.com/atoll-cms">Atoll CMS</a></p>
+    </div>
   </div>
 </footer>

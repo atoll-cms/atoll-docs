@@ -1,14 +1,15 @@
 ---
 title: Themes
-excerpt: Theme-Aufbau, offizielle Theme-Repos und Override-Reihenfolge.
+excerpt: Theme structure, official theme repos and override order.
+eyebrow: Extensions
 ---
 
-## Was ist ein Theme in atoll?
+## What is a theme in atoll?
 
-Ein Theme ist **nicht nur CSS**.
+A theme is **not just CSS**.
 
-- `assets/main.css` definiert Look & Feel.
-- `templates/` ist optional und ueberschreibt Twig-Layouts/Pages/Components.
+- `assets/main.css` defines look & feel.
+- `templates/` is optional and overrides Twig layouts/pages/components.
 
 ## Installation
 
@@ -20,32 +21,32 @@ Ein Theme ist **nicht nur CSS**.
 - `php bin/atoll preset:list`
 - `php bin/atoll preset:apply business`
 
-## Marketplace (Verkauf)
+## Marketplace (commercial)
 
-Der Theme-Marktplatz basiert auf `content/data/theme-registry.json`.
-Pro Eintrag koennen `price_eur`, `seller`, `requires_license` und `checkout_url` gesetzt werden.
+The theme marketplace is based on `content/data/theme-registry.json`.
+Each entry can set `price_eur`, `seller`, `requires_license` and `checkout_url`.
 
-Lizenzschluessel werden in `content/data/licenses.yaml` gespeichert.
+License keys are stored in `content/data/licenses.yaml`.
 
 ## Official Theme Set (separate repos)
 
-- `default` bleibt im Core als Fallback
-- `business` — offizielles Repo: https://github.com/atoll-cms/atoll-theme-business
-- `editorial` — offizielles Repo: https://github.com/atoll-cms/atoll-theme-editorial
-- `portfolio` — offizielles Repo: https://github.com/atoll-cms/atoll-theme-portfolio
-- `skeleton` — Beispielstruktur: https://github.com/atoll-cms/atoll-theme-skeleton
+- `default` stays in core as fallback
+- `business` — official repo: https://github.com/atoll-cms/atoll-theme-business
+- `editorial` — official repo: https://github.com/atoll-cms/atoll-theme-editorial
+- `portfolio` — official repo: https://github.com/atoll-cms/atoll-theme-portfolio
+- `skeleton` — example structure: https://github.com/atoll-cms/atoll-theme-skeleton
 
-## Starter-Presets (Content)
+## Starter Presets (content)
 
-Passend zum Theme gibt es Presets fuer Startinhalte:
+Presets for starter content are available matching each theme:
 
 - `business`
 - `editorial`
 - `portfolio`
 
-Mit `preset:apply` werden beispielhafte Seiten, Navigation und Blog-Inhalte gesetzt.
+With `preset:apply`, example pages, navigation and blog content are set up.
 
-## Override-Reihenfolge
+## Override Order
 
 1. `templates/`
 2. `themes/<active>/templates/`

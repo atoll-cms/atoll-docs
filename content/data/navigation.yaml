@@ -1,10 +1,36 @@
-- label: Start
-  url: /
-- label: Updates
-  url: /updates
-- label: Plugins
-  url: /plugins
-- label: Themes
-  url: /themes
-- label: Konzept
-  url: https://github.com/atoll-cms/atoll-docs/blob/main/ATOLL_CONCEPT_ORIGINAL.md
+- section: Getting Started
+  children:
+    - label: Installation
+      url: /installation
+    - label: Configuration
+      url: /configuration
+    - label: Directory Structure
+      url: /structure
+
+- section: Content
+  children:
+    - label: Pages & Collections
+      url: /pages
+    - label: Markdown & Frontmatter
+      url: /markdown
+
+- section: Extensions
+  children:
+    - label: Plugins
+      url: /plugins
+    - label: Themes
+      url: /themes
+
+- section: Operations
+  children:
+    - label: Updates & Rollbacks
+      url: /updates
+    - label: Security
+      url: /security
+
+- section: Reference
+  children:
+    - label: CLI Commands
+      url: /cli
+    - label: Architecture
+      url: /about
