@@ -19,6 +19,9 @@ eyebrow: Extensions
 - `analytics`
 - `forms-pro`
 - `shop`
+- `members`
+- `newsletter`
+- `booking-pro`
 - `tables` (sort, filter, pagination as island; CSV parse helper at `POST /tables/parse-csv`)
 - `visual-editor` (Markdown <-> Block conversion with dedicated admin page at `/admin/visual-editor`)
 

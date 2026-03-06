@@ -28,6 +28,15 @@
     - label: Security
       url: /security
 
+- section: Launch
+  children:
+    - label: Demo Site
+      url: /demo
+    - label: Live Website
+      url: https://atoll-cms.github.io/atoll-website
+    - label: Benchmarks
+      url: https://atoll-cms.github.io/atoll-benchmarks/
+
 - section: Reference
   children:
     - label: CLI Commands
