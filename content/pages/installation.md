@@ -9,6 +9,12 @@ eyebrow: Getting Started
 - PHP 8.2 or higher
 - Composer
 - A web server (Apache, nginx) or the built-in PHP dev server
+- PHP extensions: `mbstring`, `json`, and `gd` or `imagick`
+
+The web installer runs requirement checks before writing config:
+- PHP version
+- required extensions
+- basic write access
 
 ## Install via Composer
 

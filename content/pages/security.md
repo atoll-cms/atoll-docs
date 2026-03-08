@@ -40,7 +40,17 @@ security:
 security:
   force_https: true
   hsts: true
+  mixed_content_check:
+    enabled: true
 ```
+
+### Mixed Content Scan
+
+The admin provides a built-in mixed-content scan:
+- UI: Admin -> Security -> Mixed Content Scan
+- API: `GET /admin/api/security/mixed-content/scan?limit=200`
+
+It scans config/content/templates/themes/plugins for `http://` references and returns file + line hits.
 
 ## Admin Area
 

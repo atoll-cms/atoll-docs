@@ -35,3 +35,25 @@ License keys are stored in `content/data/licenses.yaml`.
 ## Structure
 
 A plugin requires a `plugin.php` with metadata, hooks, optional routes and islands.
+
+## Route Registration Hook
+
+In addition to manifest routes (`'routes' => [...]`), plugins can now register routes dynamically via hook:
+
+```php
+return [
+  'name' => 'Example',
+  'hooks' => [
+    'route:register' => static function (): array {
+      return [
+        '/my-endpoint' => static fn () => ['ok' => true],
+      ];
+    },
+  ],
+];
+```
+
+Supported return shapes:
+- associative map (`'/path' => handler`)
+- list of route maps
+- `['path' => '/path', 'handler' => callable]`
